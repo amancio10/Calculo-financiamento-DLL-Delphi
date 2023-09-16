@@ -28,20 +28,15 @@ type
   TotalJuros        : Double;
   Montante          : Double;
   end;
-
 function CalculoFinanciamento(valor_bem, taxa_juros: Double; num_meses: Integer): TResultadoCalculo; Stdcall;
 begin
-
   {Calcular o valor da parcela}
-  Result.ValorParcela := (taxa_juros * valor_bem) / (1 - Power(1 + taxa_juros, -num_meses));
-
+  Result.ValorParcela := ((taxa_juros / 100) * valor_bem) / (1 - Power(1 + (taxa_juros / 100), -num_meses));
   {Calcular o total de juros}
   Result.TotalJuros := (Result.ValorParcela * num_meses) - valor_bem;
-
   {Calcular o montante}
   Result.Montante := valor_bem + Result.TotalJuros;
 end;
-
 Exports
   CalculoFinanciamento Name 'Calculo';
 
