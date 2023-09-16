@@ -34,7 +34,7 @@ Exports
 ```
 
 
-## ⚡️ Carregae DLL em sistema
+## ⚡️ Carrega DLL em sistema
 
  
 * ### Type
